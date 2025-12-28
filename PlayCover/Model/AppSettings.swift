@@ -41,9 +41,17 @@ struct AppSettingsData: Codable {
     var rootWorkDir = true
     var noKMOnInput = true
     var enableScrollWheel = true
-
+    var hideTitleBar = false
+    var floatingWindow = false
+    var checkMicPermissionSync = false
+    var limitMotionUpdateFrequency = false
+    var disableBuiltinMouse = false
+    var resizableAspectRatioType = 0
+    var resizableAspectRatioWidth = 0
+    var resizableAspectRatioHeight = 0
     var maaTools = false
     var maaToolsPort = 1717
+
 
     init() {}
 
@@ -74,7 +82,15 @@ struct AppSettingsData: Codable {
         rootWorkDir = try container.decodeIfPresent(Bool.self, forKey: .rootWorkDir) ?? true
         noKMOnInput = try container.decodeIfPresent(Bool.self, forKey: .noKMOnInput) ?? true
         enableScrollWheel = try container.decodeIfPresent(Bool.self, forKey: .enableScrollWheel) ?? true
-
+        hideTitleBar = try container.decodeIfPresent(Bool.self, forKey: .hideTitleBar) ?? false
+        floatingWindow = try container.decodeIfPresent(Bool.self, forKey: .floatingWindow) ?? false
+        checkMicPermissionSync = try container.decodeIfPresent(Bool.self, forKey: .checkMicPermissionSync) ?? false
+        limitMotionUpdateFrequency = try container.decodeIfPresent(Bool.self,
+                                                                   forKey: .limitMotionUpdateFrequency) ?? false
+        disableBuiltinMouse = try container.decodeIfPresent(Bool.self, forKey: .disableBuiltinMouse) ?? false
+        resizableAspectRatioType = try container.decodeIfPresent(Int.self, forKey: .resizableAspectRatioType) ?? 0
+        resizableAspectRatioWidth = try container.decodeIfPresent(Int.self, forKey: .resizableAspectRatioWidth) ?? 0
+        resizableAspectRatioHeight = try container.decodeIfPresent(Int.self, forKey: .resizableAspectRatioHeight) ?? 0
         maaTools = try container.decodeIfPresent(Bool.self, forKey: .maaTools) ?? false
         maaToolsPort = try container.decodeIfPresent(Int.self, forKey: .maaToolsPort) ?? 1717
     }
