@@ -63,7 +63,6 @@ class UpdateScheme {
             steps += 1
         }
     }
-    }
 
     private static func updateFromV2ToV3() throws {
         try FileManager.default.createDirectory(at: AppsVM.appDirectory, withIntermediateDirectories: true)
